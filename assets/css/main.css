@@ -91,7 +91,7 @@ input, select, textarea {
 		background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)), url("images/bg01.png");
 		background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)), url("images/bg01.png");
 		background-image: linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)), url("images/bg01.png");
-		background-color: #f7f7f7;
+		background-color: #add3ed;
 		background-position: top left, top left;
 		background-repeat: repeat-x, repeat;
 		background-size: 100% 30em, auto;
@@ -1482,6 +1482,7 @@ input, select, textarea {
 
 	footer {
 		margin: 2.5em 0 0 0;
+		color:#13294B
 	}
 
 /* Forms */
@@ -1986,7 +1987,7 @@ input, select, textarea {
 					transition: background-color .25s ease-in-out;
 					font-weight: 800;
 					letter-spacing: 0.025em;
-					color: #696969;
+					color: #13294B;
 					text-decoration: none;
 					border-radius: 6px;
 					padding: 0.5em 1em 0.5em 1em;
@@ -2005,7 +2006,7 @@ input, select, textarea {
 				}
 
 				#nav ul li.current a {
-					background: #444;
+					background: #13294B;
 					color: #fff;
 				}
 
@@ -2125,7 +2126,7 @@ input, select, textarea {
 		}
 
 	#copyright {
-		color: #aaa;
+		color: #13294B;
 		padding: 4em 0 0 0;
 		text-align: center;
 	}
