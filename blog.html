@@ -88,6 +88,61 @@
 											Electric Company values your feedback and looks forward to hearing from you!  Please be respectful in your 
 											messages, and avoid posting any inappropriate or personal content.</p>
 
+											<!-- Chat / Message Board -->
+											<section id="message-board" style="margin-top: 2rem;">
+											<h3>Message Board</h3>
+
+											<form id="chat-form" style="margin: 1rem 0;">
+												<div style="display: grid; gap: 0.75rem;">
+												<div>
+													<label for="chat-name" style="display:block; margin-bottom: 0.25rem;">Name</label>
+													<input
+													type="text"
+													id="chat-name"
+													name="chat-name"
+													placeholder="e.g., Alex"
+													maxlength="40"
+													autocomplete="nickname"
+													style="width: 100%;"
+													required
+													/>
+												</div>
+
+												<div>
+													<label for="chat-message" style="display:block; margin-bottom: 0.25rem;">Message</label>
+													<textarea
+													id="chat-message"
+													name="chat-message"
+													placeholder="Write your message..."
+													maxlength="500"
+													rows="4"
+													style="width: 100%; resize: vertical;"
+													required
+													></textarea>
+												</div>
+
+												<div style="display:flex; gap: 0.75rem; align-items:center; flex-wrap: wrap;">
+													<button type="submit" class="button icon solid fa-comment">Post Message</button>
+
+													<button
+													type="button"
+													id="clear-posts"
+													class="button alt icon solid fa-trash"
+													title="Deletes all posts for everyone"
+													>
+													Clear All Posts
+													</button>
+
+													<span id="chat-status" style="opacity: 0.8;"></span>
+												</div>
+												</div>
+											</form>
+
+											<div id="chat-list" aria-live="polite">
+												<!-- Messages render here -->
+											</div>
+											</section>
+
 										</article>
 
 								</div>
@@ -186,6 +241,14 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<!-- Firebase (Firestore) -->
+			<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+
+			<!-- Your message board logic -->
+			<script src="assets/js/chat.js"></script>
+
 
 	</body>
 </html>
