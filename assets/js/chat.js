@@ -8,11 +8,13 @@
     projectId: "xss-sim",
     storageBucket: "xss-sim.firebasestorage.app",
     messagingSenderId: "687730855799",
-    appId: "1:687730855799:web:7f4e36b1a972f5a6bb9b72"
+    appId: "1:687730855799:web:7f4e36b1a972f5a6bb9b72",
+    measurementId: "G-EDP1ZVERSP"
   };
 
   // 2) Initialize Firebase + Firestore
-  firebase.initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
   const db = firebase.firestore();
 
   // 3) DOM references
@@ -32,7 +34,6 @@
     statusEl.textContent = text || "";
   };
 
-  // Prevent XSS: Disable this block later for demo
   const makeMessageNode = (doc) => {
     const data = doc.data();
 
@@ -70,7 +71,10 @@
     const body = document.createElement("div");
     body.style.marginTop = "0.4rem";
     body.style.whiteSpace = "pre-wrap";
-    body.textContent = (data.message || "").slice(0, 500);
+
+    // Below, using ".innerHTML" allows messages to include HTML tags and scripts, allowing for XSS
+    // To make this safer, replace ".innerHTML" with ".textContent" to disable all HTML rendering in messages
+    body.innerHTML = (data.message || "").slice(0, 500);
 
     wrapper.appendChild(header);
     wrapper.appendChild(body);
