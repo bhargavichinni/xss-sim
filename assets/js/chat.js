@@ -9,12 +9,10 @@
     storageBucket: "xss-sim.firebasestorage.app",
     messagingSenderId: "687730855799",
     appId: "1:687730855799:web:7f4e36b1a972f5a6bb9b72",
-    measurementId: "G-EDP1ZVERSP"
   };
 
   // 2) Initialize Firebase + Firestore
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
 
   // 3) DOM references
