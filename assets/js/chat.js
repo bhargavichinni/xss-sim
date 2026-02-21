@@ -74,7 +74,7 @@
 
     // Below, using ".innerHTML" allows messages to include HTML tags and scripts, allowing for XSS
     // To make this safer, replace ".innerHTML" with ".textContent" to disable all HTML rendering in messages
-    body.textContent = (data.message || "").slice(0, 500);
+    body.innerHTML = (data.message || "").slice(0, 500);
 
     wrapper.appendChild(header);
     wrapper.appendChild(body);
