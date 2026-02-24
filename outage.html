@@ -46,6 +46,19 @@
 					<div class="container">
 						<h2>What to do in a Power Outage</h2>
 
+						<div style="margin-bottom:20px;">
+							<label for="sectionSelect"><strong>Jump to section:</strong></label>
+							<select id="sectionSelect">
+								<option value="">Select Section...</option>
+								<option value="fallen">Fallen lines or hazards</option>
+								<option value="waiting">Waiting for restoration</option>
+								<option value="restored">After restoration</option>
+								<option value="preparing">Prepare for future outages</option>
+								<option value="process">How we restore power</option>
+							</select>
+							<div id="jumpMessage" style="font-style: italic; font-size: small;"></div>
+						</div>
+
 						<p>Losing power can be scary! Luckily, we've prepared a guide to help you stay safe and informed 
 						during an outage. Read below for some standard procedures on how to best handle an outage. If you
 						have a question specific to your situation, please contact us. <i><strong style="color:rgb(28, 159, 202)"> 
@@ -53,7 +66,7 @@
 						
 						<div class="row gtr-200">
 							<div class="col-7 col-12-medium">
-								<h3>Fallen lines or other safety hazards</h3>
+								<h3 id="fallen">Fallen lines or other safety hazards</h3>
 								<p>If you see a fallen power line or any other safety hazard, do not touch it. Stay at least 10 feet 
 								away and contact your local emergency services immediately. Keep others away from the area until help 
 								arrives. When you are at a safe distance, report the incident online or by calling 1-800-769-3766. If 
@@ -70,7 +83,7 @@
 
 							<!-- Content -->
 								<article>
-									<h3>While waiting for power to be restored...</h3>
+									<h3 id="waiting">While waiting for power to be restored...</h3>
 									<ul>
 										<li><strong>Confirm and report the outage.</strong> Check if the outage is affecting your area by looking at the 
 										outage map or contacting us. Look outside for lights or call neighbors to verify if it is just your home that is 
@@ -91,7 +104,7 @@
 										shade. In cold weather, wear layers and use blankets to stay warm.</li>
 									</ul>
 									
-									<h3>After power is restored...</h3>
+									<h3 id="restored">After power is restored...</h3>
 									<ul>
 										<li><strong>Check your appliances and electronics.</strong> Make sure they are functioning properly. If you notice 
 										any issues, contact a professional for repairs.</li>
@@ -104,7 +117,7 @@
 										and restoration efforts, visit our <a href="construction.html">Construction</a> page.</li> 
 									</ul>
 
-									<h3>Preparing for a future outage</h3>
+									<h3 id="preparing">Preparing for a future outage</h3>
 									<div class="row gtr-200">
 										<div class="col-5 col-12-medium">
 											<img src="images/supplies.jpg" alt="" class="image featured" />
@@ -124,7 +137,7 @@
 										</div>
 									</div>
 
-									<h3>How we restore power</h3>
+									<h3 id="process">How we restore power</h3>
 									<p>Carolina Electric Company focuses on restoring power in a sequence that enables power restoration to 
 									public health and safety facilities and to the greatest number of customers as safely and quickly as possible. 
 									We follow a systematic approach to restore power after an outage that begins with our teams assessing the 
@@ -213,6 +226,18 @@
 			</div>
 
 		<!-- Scripts -->
+			<script>
+				const dropdown = document.getElementById("sectionSelect");
+				const messageDiv = document.getElementById("jumpMessage");
+
+				dropdown.addEventListener("change", () => {
+					location.hash = dropdown.value;
+
+					// Print message using innerHTML
+					const hashValue = decodeURIComponent(location.hash.substring(1));
+					messageDiv.innerHTML = "Jumped to section: " + hashValue;
+				});
+			</script>
 
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
