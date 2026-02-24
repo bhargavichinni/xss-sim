@@ -29,6 +29,9 @@
 							if (!isActive) {
 								this.classList.add("active");
 								this.nextElementSibling.style.display = "block";
+								location.hash = this.id;
+							} else {
+								history.replaceState(null, null, ' ');
 							}
 						});
 					}
@@ -87,7 +90,7 @@
 											on the sections below to learn more about all our partnership opportunities, and let us help you elevate your 
 											business today.</p>
 
-											<button type="button" class="collapsible">Builders, Developers, and Contractors</button>
+											<button type="button" class="collapsible" id="builders">Builders, Developers, and Contractors</button>
 											<div class="content">
 												<p>Carolina Electric Company works closely with builders, developers, and contractors to ensure 
 												all projects are completed safely and efficiently. We provide reliable electrical services that 
@@ -108,7 +111,7 @@
 
 											<p> </p>
 
-											<button type="button" class="collapsible">US Government Partnerships</button>
+											<button type="button" class="collapsible" id="government">US Government Partnerships</button>
 											<div class="content">
 												<p>Carolina Electric Company is proud to work with local and state government agencies to support infrastructure development 
 												and public safety initiatives. Our government partnerships are built on a foundation of reliability, transparency, and mutual 
@@ -132,7 +135,7 @@
 
 											<p> </p>
 
-											<button type="button" class="collapsible">Community Partnerships</button>
+											<button type="button" class="collapsible" id="community">Community Partnerships</button>
 											<div class="content">
 												<p>Carolina Electric Company is deeply committed to building strong, sustainable communities. We work 
 												closely with local organizations and residents to ensure our services meet the needs of everyone in our 
@@ -154,7 +157,7 @@
 
 											<p> </p>
 
-											<button type="button" class="collapsible">University Partners</button>
+											<button type="button" class="collapsible" id="university">University Partners</button>
 											<div class="content">
 												<p>Carolina Electric Company is proud to partner with both the <b style="color:rgb(28, 159, 202)">University 
 												of North Carolina at Chapel Hill</b> and <b style="color:rgb(28, 159, 202)">Nagoya University</b>.
@@ -175,6 +178,7 @@
 											many ways to contribute to our shared goal of building a sustainable and resilient energy future.</p>
 
 											<img src="images/community.png" alt="" class="image featured" />
+											<div id="collapsible" style="font-style: italic; font-size: small;"></div>
 
 										</article>
 
@@ -283,6 +287,12 @@
 			</div>
 
 		<!-- Scripts -->
+			<script>
+				const messageDiv = document.getElementById("collapsible");
+				window.addEventListener("hashchange", function () {
+					messageDiv.innerHTML = "Highlighted partner: " + unescape(self.location.hash.substr(1));
+				});
+			</script>
 
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
