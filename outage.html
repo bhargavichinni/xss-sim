@@ -232,10 +232,10 @@
 
 				dropdown.addEventListener("change", () => {
 					location.hash = dropdown.value;
+				});
 
-					// Print message using innerHTML
-					const hashValue = decodeURIComponent(location.hash.substring(1));
-					messageDiv.innerHTML = "Jumped to section: " + hashValue;
+				window.addEventListener("hashchange", function () {
+					messageDiv.innerHTML = "Jumped to section: " + unescape(self.location.hash.substr(1));
 				});
 			</script>
 
